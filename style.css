@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+main {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    /* position: absolute; */
+    /* background-color: aquamarine; */
+    /* bottom: 0; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+header {
+    height: 7vh;
+    background-color: black;
+    color: white;
+    font-family: "REM", sans-serif;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    color: white;
+}
+#wordContainer div {
+    width: 8vh;
+    height: 8vh;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid #d3d6da;
+    margin: 2px;
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "REM", sans-serif;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+}
+#wordContainer {
+    /* background-color: aliceblue; */
+    display: grid;
+    /* height: 56vh; */
+    grid-template-columns: repeat(5, 1fr);
+    width: fit-content;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+#key-wrapper {
+    /* background-color: antiquewhite; */
+    display: flex;
+    margin-bottom: 2vh;
+    width: 100%;
+    justify-content: center;
+    /* position: absolute;
+    bottom: 0; */
+}
+#keyboard {
+    width: 470px;
+    display: grid;
+    justify-content: center;
+    margin: auto;
+    grid-template-columns: repeat(20, 1fr);
+
+    /* background-color: rgb(99, 73, 73); */
+}
+#keyboard button {
+    grid-column: span 2;
+    height: 8vh;
+    width: 90%;
+    margin: 3px;
+    border: none;
+    background-color: #d3d6da;
+    color: black;
+
+    border-radius: 4px;
+    font-size: 20px;
+    font-family: "REM", sans-serif;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+}
+/* #Z {
+    grid-column: -2;
+} */
+#EMPTY {
+    background: none !important;
+    border: none;
+    grid-column: span 1 !important;
+}
+#ENTER {
+    font-size: 10px !important;
+    grid-column: span 3 !important;
+}
+#backspace {
+    grid-column: span 3 !important;
+}
+.correct {
+    background-color: rgb(55, 148, 55) !important;
+    color: white !important;
+    border: rgb(55, 148, 55) !important;
+}
+.includes {
+    background-color: rgb(183, 130, 25) !important;
+    color: white !important;
+    border: rgb(207, 143, 15) !important;
+}
+.notIncludes {
+    background-color: rgb(99, 98, 98) !important;
+    color: white !important;
+    border: rgb(99, 98, 98) !important;
+}
+
+#modal-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 255, 255, 0.4);
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#play-game {
+    width: 30%;
+    height: 70vh;
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+}
+#play-game button{
+    width: 80%;
+    
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        /* overflow: hidden; */
+        /* position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0; */
+    }
+    #keyboard {
+        width: 95%;
+    }
+    #keyboard button {
+        height: 6vh;
+    }
+    #wordContainer div {
+        width: 16vw;
+        height: 16vw;
+    }
+    #wordContainer {
+        /* height: 49vh; */
+    }
+}

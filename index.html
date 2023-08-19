@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <title>Wordle-like Keyboard Utility</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=REM:wght@300&family=Roboto&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=REM:wght@300&family=Roboto:wght@400;900&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <!-- <p>Guess the word using the custom keyboard:</p> -->
+        <div id="modal-container">
+            <div id="play-game">
+                <button>Play!</button>
+            </div>
+        </div>
+
+        <main>
+            <header><h1>Not Wordle</h1></header>
+            <div id="wordContainer"></div>
+
+            <div id="key-wrapper">
+                <div class="keyboard-container" id="keyboard">
+                    <!-- Keyboard keys will be generated here -->
+                </div>
+            </div>
+        </main>
+
+        <script src="wordle.js"></script>
+    </body>
+</html>
