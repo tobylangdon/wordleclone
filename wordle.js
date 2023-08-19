@@ -1,6 +1,7 @@
 const keyCont = document.getElementById("keyboard");
 const wordCont = document.getElementById("wordContainer");
 const boxes = document.getElementsByClassName("box");
+const PlayButton = document.getElementById('playBtn')
 currentRow = 0;
 
 const wordList = [
@@ -112,6 +113,14 @@ const keys = [
     "M",
     "<<",
 ];
+
+PlayButton.addEventListener("click", playGame);
+
+
+function playGame(){
+    const container = document.getElementById('modal-container');
+    container.style.display = "none";
+}
 
 function revealLetter(id, classToAdd, key) {
     console.log("revelaing");

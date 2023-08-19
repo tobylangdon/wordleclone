@@ -124,20 +124,42 @@ h1 {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 255, 255, 0.4);
+    background-color: rgba(152, 152, 152, 1);
     z-index: 5;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 #play-game {
-    width: 30%;
+    width: 90%;
     height: 70vh;
     border-radius: 15px;
     background-color: rgb(255, 255, 255);
+    display: flex;
+    
+    border-style: inset 5px; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#play-game h1{
+    color: black;
+    font-family: "REM", sans-serif;
+    font-family: "Roboto", sans-serif;
+    margin: 40px;
 }
 #play-game button{
-    width: 80%;
+    width: 200px;
+    border: none;
+    height: 60px;
+    border-radius: 10px;
+    color: white;
+    background-color: black;
+    font-size: 18px;
+    font-family: "REM", sans-serif;
+    font-family: "Roboto", sans-serif;
     
 }
 
