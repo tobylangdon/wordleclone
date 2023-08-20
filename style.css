@@ -130,27 +130,65 @@ h1 {
     align-items: center;
     justify-content: center;
 }
+#winner{
+    width: 90%;
+    height: 70vh;
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+    display: none;
+    border: 5px solid black;
+    border-style: inset 5px; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+
+}
+#congrats{
+    display: flex;
+}
+#congrats div{
+    width: 5vh;
+    height: 5vh;
+    color: white;
+    background-color: rgb(55, 148, 55);
+    margin: 2px;
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "REM", sans-serif;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+}
 #play-game {
     width: 90%;
     height: 70vh;
     border-radius: 15px;
     background-color: rgb(255, 255, 255);
     display: flex;
-    
+    border: 5px solid black;
     border-style: inset 5px; 
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     position: relative;
+}
+#play-game div{
+    font-family: "REM", sans-serif;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
 }
 
 #play-game h1{
     color: black;
     font-family: "REM", sans-serif;
     font-family: "Roboto", sans-serif;
-    margin: 40px;
+    /* margin: 40px; */
 }
-#play-game button{
+.btn{
     width: 200px;
     border: none;
     height: 60px;

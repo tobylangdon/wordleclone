@@ -2,8 +2,12 @@ const keyCont = document.getElementById("keyboard");
 const wordCont = document.getElementById("wordContainer");
 const boxes = document.getElementsByClassName("box");
 const PlayButton = document.getElementById('playBtn')
+const winnerModal = document.getElementById('winner')
+const container = document.getElementById('modal-container');
+const playGameModal = document.getElementById('play-game');
+const playAgainBtn = document.getElementById('playAgainBtn');
 currentRow = 0;
-
+let secretWord = ""
 const wordList = [
     "apple",
     "table",
@@ -67,10 +71,8 @@ const wordList = [
     "bliss",
     // Add more words here...
 ];
-const secretWord =
-    wordList[Math.floor(Math.random() * wordList.length - 1) + 1];
 
-let grid = {
+grid = {
     0: ["", "", "", "", ""],
     1: ["", "", "", "", ""],
     2: ["", "", "", "", ""],
@@ -78,6 +80,9 @@ let grid = {
     4: ["", "", "", "", ""],
     5: ["", "", "", "", ""],
 };
+
+let correctLetters = []
+let correctPlaceLetters =[]
 
 let IdGrid = {};
 
@@ -114,16 +119,21 @@ const keys = [
     "<<",
 ];
 
-PlayButton.addEventListener("click", playGame);
+PlayButton.addEventListener("click", gameInit);
+playAgainBtn.addEventListener("click", gameInit);
 
 
 function playGame(){
-    const container = document.getElementById('modal-container');
     container.style.display = "none";
+}
+function endGame(didWin){
+    if(didWin){
+        container.style.display ="flex"
+        winnerModal.style.display = "flex"
+    }
 }
 
 function revealLetter(id, classToAdd, key) {
-    console.log("revelaing");
     const square = document.getElementById(id);
     const keyLetter = document.getElementById(key);
     keyLetter.classList.add(classToAdd);
@@ -132,9 +142,10 @@ function revealLetter(id, classToAdd, key) {
 
 function checkRow() {
     if (grid[currentRow].join("").length != 5) {
-        console.log("Every letter");
+
         return;
     }
+    
     for (i = 0; i < grid[currentRow].length; i++) {
         // console.log(grid[currentRow][i], secretWord[i]);
         let id = `${currentRow}${i}`;
@@ -148,6 +159,11 @@ function checkRow() {
         } else {
             revealLetter(id, "notIncludes", grid[currentRow][i]);
         }
+    }
+    if(grid[currentRow].join("").toLowerCase() == secretWord.toLowerCase()){
+        console.log("You Won!")
+        endGame(true)
+        return;
     }
     currentRow++;
 }
@@ -194,9 +210,52 @@ function drawGrid() {
 }
 
 //Initiating grid
+function gameInit(){
+    currentRow = 0
+    grid = {
+        0: ["", "", "", "", ""],
+        1: ["", "", "", "", ""],
+        2: ["", "", "", "", ""],
+        3: ["", "", "", "", ""],
+        4: ["", "", "", "", ""],
+        5: ["", "", "", "", ""],
+    };
+
+    const boxes = document.querySelectorAll('.box');
+
+    boxes.forEach(box => {
+        box.classList.remove('correct')
+        box.classList.remove('includes')
+        box.classList.remove('notIncludes')
+        box.textContent = ""
+    });
+
+    const keys = document.querySelectorAll('.key');
+
+    keys.forEach(k => {
+        k.classList.remove('correct')
+        k.classList.remove('includes')
+        k.classList.remove('notIncludes')
+    });
+
+
+    winnerModal.style.display = "none"
+    playGameModal.style.display ="none"
+    container.style.display = "none"
+
+    secretWord =
+    wordList[Math.floor(Math.random() * wordList.length - 1) + 1];
+
+    console.log(secretWord)
+
+    
+    
+   
+
+}
 keys.forEach((key) => {
     const butEl = document.createElement("button");
-
+    butEl.setAttribute("class", "key");
     if (key != "<<") {
         butEl.setAttribute("id", key);
     } else {
@@ -224,3 +283,4 @@ for (row in grid) {
         i++;
     }
 }
+
